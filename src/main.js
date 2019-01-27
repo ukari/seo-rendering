@@ -36,7 +36,10 @@ let launch = ({proxyUrl, targetUrl, port, host}) =>
       logger.info(`GET request will be redirect to ${proxyUrl}/${targetUrl}`);
     });
 
-let options = {};
+let options = {
+  host: "127.0.0.1",
+  port: "8081"
+};
 
 let setOpt = fieldname => (x) => options[fieldname] = x;
 
