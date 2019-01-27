@@ -1,4 +1,5 @@
 # seo-rendering
+a CLI tool for forward GET requrest to headless render service
 
 ## Install
 ``` shell
