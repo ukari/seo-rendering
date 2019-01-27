@@ -1,0 +1,37 @@
+{
+  "name": "seo-rendering",
+  "version": "0.0.1",
+  "description": "server for search engine crawlers",
+  "main": "dist/main.js",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "bin": {
+    "seo-rendering": "dist/main.js"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukari/seo-rendering.git"
+  },
+  "author": "\"muromi ukari\"",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ukari/seo-rendering/issues"
+  },
+  "homepage": "https://github.com/ukari/seo-rendering#readme",
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "webpack-log": "^2.0.0",
+    "commander": "^2.19.0"
+  },
+  "devDependencies": {
+    "rollup": "^1.1.2",
+    "rollup-plugin-async": "^1.2.0",
+    "rollup-plugin-terser": "^4.0.3"
+  }
+}
