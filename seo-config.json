@@ -1,0 +1,6 @@
+{
+  "proxyUrl": "https://render-tron.appspot.com/render",
+  "targetUrl": "https://your.target.webstie.url",
+  "host": "127.0.0.1",
+  "port": 8081
+}

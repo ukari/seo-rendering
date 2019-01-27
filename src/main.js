@@ -7,6 +7,8 @@ import program from 'commander';
 
 let {name, version} = require('../package.json');
 
+let defaultOpts = require('../seo-config.json');
+
 const logger = weblog({name: name});
 
 let reject_service = res => {
@@ -36,9 +38,10 @@ let launch = ({proxyUrl, targetUrl, port, host}) =>
       logger.info(`GET request will be redirect to ${proxyUrl}/${targetUrl}`);
     });
 
+
 let options = {
-  host: "127.0.0.1",
-  port: "8081"
+  host: defaultOpts.host,
+  port: defaultOpts.port
 };
 
 let setOpt = fieldname => (x) => options[fieldname] = x;
@@ -48,11 +51,11 @@ program
   .version(version, '-v, --version')
   .option('-S, --service [proxyUrl]', 'the headless proxy service url', setOpt("proxyUrl"))
   .option('-T, --target [targetUrl]', 'the target website url', setOpt("targetUrl"))
-  .option('-H, --host [host]', 'hostname of this proxy server', setOpt("host"))
-  .option('-P, --port [port]', 'port number of this proxy server', setOpt("port"))
+  .option('-H, --host [host]', `default ${options.host}, hostname of this proxy server`, setOpt("host"))
+  .option('-P, --port [port]', `default ${options.port}, port number of this proxy server`, setOpt("port"))
   .option('-C, --config [json filename]', 'run with config json file', filename => {
     let config = require(path.join(process.cwd(), filename))
-    options = config;
+    options = {...defaultOpts, ...config};
   })
   .parse(process.argv);
 
