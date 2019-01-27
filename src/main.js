@@ -1,15 +1,14 @@
 import http from 'http';
 import fetch from 'node-fetch';
 import weblog from 'webpack-log';
-
-import path from 'path';
 import program from 'commander';
+import path from 'path';
 
 let {name, version} = require('../package.json');
 
-let defaultOpts = require('../seo-config.json');
+let logger = weblog({name: name});
 
-const logger = weblog({name: name});
+let defaultOpts = require('../seo-config.json');
 
 let reject_service = res => {
   res.writeHead(403, {'Reason': 'This server only serve the seo-rendering proxy service'});
@@ -37,7 +36,6 @@ let launch = ({proxyUrl, targetUrl, port, host}) =>
       logger.info(`seo-rendering proxy launch on ${host}:${port}`);
       logger.info(`GET request will be redirect to ${proxyUrl}/${targetUrl}`);
     });
-
 
 let options = {
   host: defaultOpts.host,

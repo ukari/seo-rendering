@@ -1,5 +1,5 @@
 {
-  "proxyUrl": "https://render-tron.appspot.com/render",
+  "proxyUrl": "https://your.headless.render.service.url",
   "targetUrl": "https://your.target.webstie.url",
   "host": "127.0.0.1",
   "port": 8081
