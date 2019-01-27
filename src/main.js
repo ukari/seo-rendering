@@ -17,15 +17,19 @@ let reject_service = res => {
 
 let proxy = ({proxyUrl, targetUrl}) => http.createServer(async (req, res) => {
   if (req.method === "GET") {
-    let reuslt = await fetch(proxyUrl + '/' + targetUrl + req.url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36'
-      }
-    });
-    let text = await result.text();
-    res.writeHead(200, {});
-    res.end(result);
-    return;
+    try {
+      let result = await fetch(proxyUrl + '/' + targetUrl + req.url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/71.0.3578.98 Chrome/71.0.3578.98 Safari/537.36'
+        }
+      });
+      let text = await result.text();
+      res.writeHead(200, {});
+      res.end(text);
+      return;
+    } catch(e) {
+      logger.error(e);
+    }
   }
 
   reject_service(res);
