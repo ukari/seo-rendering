@@ -10,6 +10,12 @@
   "bin": {
     "seo-rendering": "dist/main.js"
   },
+  "keywords": [
+    "seo",
+    "pre-rendering",
+    "cli-tool",
+    "proxy"
+  ],
   "scripts": {
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
