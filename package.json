@@ -1,6 +1,6 @@
 {
   "name": "seo-rendering",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "server for search engine crawlers",
   "main": "dist/main.js",
   "files": [
