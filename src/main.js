@@ -56,7 +56,7 @@ program
   .option('-H, --host [host]', `default ${options.host}, hostname of this proxy server`, setOpt("host"))
   .option('-P, --port [port]', `default ${options.port}, port number of this proxy server`, setOpt("port"))
   .option('-C, --config [json filename]', 'run with config json file', filename => {
-    let config = require(path.join(process.cwd(), filename))
+    let config = require(path.resolve(process.cwd(), filename))
     options = {...defaultOpts, ...config};
   })
   .parse(process.argv);

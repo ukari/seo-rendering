@@ -32,9 +32,9 @@
   },
   "homepage": "https://github.com/ukari/seo-rendering#readme",
   "dependencies": {
+    "commander": "^2.19.0",
     "node-fetch": "^2.3.0",
-    "webpack-log": "^2.0.0",
-    "commander": "^2.19.0"
+    "webpack-log": "^2.0.0"
   },
   "devDependencies": {
     "rollup": "^1.1.2",
